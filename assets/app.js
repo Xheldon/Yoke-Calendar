@@ -55,8 +55,8 @@ function platformOf(name) {
 }
 function archKey(name) {
   const n = name.toLowerCase()
+  if (/\.exe$/.test(n)) return 'arch.winAll' // one NSIS installer covers x64 / arm64 / x86
   if (/arm64|aarch64/.test(n)) return 'arch.arm'
-  if (/ia32|x86(?!_64)|win32/.test(n)) return 'arch.x86'
   if (/x64|x86_64|amd64|intel/.test(n)) return 'arch.intel'
   if (/\.dmg$/.test(n)) return 'arch.intel' // electron-builder names the x64 mac build with no arch suffix
   return 'arch.generic'

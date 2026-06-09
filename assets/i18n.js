@@ -81,9 +81,9 @@
     'dl.foot': { zh: '所有版本见', en: 'All versions on' },
     'dl.heroBest': { zh: '下载 {label}', en: 'Download for {label}' },
     'dl.heroOther': { zh: '{v} · 也支持其它平台 ↓', en: '{v} · also on other platforms ↓' },
-    'arch.arm': { zh: 'Apple Silicon / ARM64', en: 'Apple Silicon / ARM64' },
-    'arch.x86': { zh: 'x86（32 位）', en: 'x86 (32-bit)' },
-    'arch.intel': { zh: 'Intel / x64', en: 'Intel / x64' },
+    'arch.arm': { zh: 'Apple Silicon', en: 'Apple Silicon' },
+    'arch.intel': { zh: 'Intel', en: 'Intel' },
+    'arch.winAll': { zh: 'x64 / ARM64 / x86', en: 'x64 / ARM64 / x86' },
     'arch.generic': { zh: '安装包', en: 'Installer' },
 
     // ── changelog ──
