@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      // set theme + language before first paint (no flash). Defaults: light,
+      // and the browser's language (zh → 中文, otherwise English).
+      try {
+        var t = localStorage.getItem('yoke-theme')
+        document.documentElement.setAttribute('data-theme', t === 'dark' ? 'dark' : 'light')
+        var l = localStorage.getItem('yoke-lang')
+        if (l !== 'en' && l !== 'zh') {
+          l = (navigator.language || 'zh').toLowerCase().indexOf('zh') === 0 ? 'zh' : 'en'
+        }
+        document.documentElement.setAttribute('data-lang', l)
+        document.documentElement.lang = l === 'en' ? 'en' : 'zh-CN'
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'light')
+        document.documentElement.setAttribute('data-lang', 'zh')
+      }
+    </script>
+    <title data-i18n="meta.indexTitle">Yoke Calendar · 桌面排期日历</title>
+    <meta
+      name="description"
+      data-i18n-attr="content:meta.indexDesc"
+      content="个人和团队的桌面排期日历——划选即排期，AI 总结进度，多端同步，本地优先。支持 macOS / Windows / Linux。"
+    />
+    <link rel="icon" type="image/png" href="assets/icon.png" />
+    <meta property="og:title" data-i18n-attr="content:meta.ogTitle" content="Yoke Calendar · 桌面排期日历" />
+    <meta property="og:description" data-i18n-attr="content:meta.ogDesc" content="划选即排期 · AI 进度总结 · 多端同步 · 本地优先。" />
+    <meta property="og:image" content="assets/icon.png" />
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
+  <body>
+    <header class="nav">
+      <a class="brand" href="/">
+        <img src="assets/icon.png" alt="Yoke Calendar" width="30" height="30" />
+        <span>Yoke Calendar</span>
+      </a>
+      <div class="nav-right">
+        <nav class="nav-links">
+          <a href="#features" data-i18n="nav.features">功能</a>
+          <a href="#download" data-i18n="nav.download">下载</a>
+          <a href="docs.html" data-i18n="nav.docs">文档</a>
+          <a href="https://github.com/Xheldon/Yoke-Calendar/releases" data-i18n="nav.changelog">更新日志</a>
+        </nav>
+        <div class="nav-tools">
+          <button class="lang-toggle" id="lang-toggle" type="button" data-i18n-attr="aria-label:toggle.lang" aria-label="切换语言（中文 / English）">
+            <span class="to-en">EN</span>
+            <span class="to-zh">中</span>
+          </button>
+          <button class="theme-toggle" id="theme-toggle" type="button" data-i18n-attr="aria-label:toggle.theme" aria-label="切换深色 / 浅色主题">
+            <svg class="ic-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" /></svg>
+            <svg class="ic-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" /></svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- ── Hero ── -->
+      <section class="hero">
+        <div class="hero-glow" aria-hidden="true"></div>
+        <p class="eyebrow" data-i18n="hero.eyebrow">桌面工作排期日历</p>
+        <h1 data-i18n="hero.h1">把握排期</h1>
+        <p class="lede" data-i18n="hero.lede">个人和团队的桌面排期工具。</p>
+        <div class="hero-cta">
+          <a class="btn primary" id="hero-download" href="#download" data-i18n="hero.download">下载</a>
+          <a class="btn ghost" href="#features" data-i18n="hero.features">看看功能</a>
+        </div>
+        <p class="hero-meta" id="hero-meta" data-i18n="hero.meta">macOS · Windows · Linux · 免费 · 开源发布</p>
+        <div class="shot">
+          <img src="assets/light_cn.png" alt="Yoke Calendar" id="hero-shot" />
+          <div class="shot-placeholder" id="hero-shot-ph" data-i18n="shot.placeholder">应用截图（待补）</div>
+        </div>
+      </section>
+
+      <!-- ── Features ── -->
+      <section class="features" id="features">
+        <h2 class="section-title" data-i18n="features.title">为「排期」而生</h2>
+        <div class="grid">
+          <article class="card">
+            <div class="card-ic">🗓️</div>
+            <h3 data-i18n="feat.1.t">划选即排期</h3>
+            <p data-i18n="feat.1.d">在日历上拖拽划选时间段，直接落成需求的各个阶段（开发 / 联调 / 测试 / 上线）。泳道式色条，谁在做什么、下一步是什么，一眼可见。</p>
+          </article>
+          <article class="card">
+            <div class="card-ic">✨</div>
+            <h3 data-i18n="feat.2.t">AI 进度总结</h3>
+            <p data-i18n="feat.2.d">接入 OpenAI / Claude / Gemini / DeepSeek / 通义 / Kimi / 智谱 等 14+ 服务商，或复用本机 Claude Code / Codex CLI，一键生成周报、风险盘点、对上汇报。</p>
+          </article>
+          <article class="card">
+            <div class="card-ic">☁️</div>
+            <h3 data-i18n="feat.3.t">多端同步</h3>
+            <p data-i18n="feat.3.d">GitHub 私有仓库，或任意 WebDAV（坚果云 / Nextcloud）。后台按需自动同步，密钥本机加密、永不随数据上传。</p>
+          </article>
+          <article class="card">
+            <div class="card-ic">📡</div>
+            <h3 data-i18n="feat.4.t">日历订阅 + 节假日</h3>
+            <p data-i18n="feat.4.d">订阅任意 .ics 日历作只读叠加；内置中国节假日 + 农历 + 调休，多地区可切换。</p>
+          </article>
+          <article class="card">
+            <div class="card-ic">🔒</div>
+            <h3 data-i18n="feat.5.t">本地优先</h3>
+            <p data-i18n="feat.5.d">数据存在你本机，离线可用。同步、AI 全部可选——隐私你说了算。</p>
+          </article>
+          <article class="card">
+            <div class="card-ic">⬇️</div>
+            <h3 data-i18n="feat.6.t">自动更新</h3>
+            <p data-i18n="feat.6.d">签名 + 公证的安装包，后台静默下载，重启即更新。macOS / Windows / Linux 全平台覆盖。</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- ── Download ── -->
+      <section class="download" id="download">
+        <h2 class="section-title" data-i18n="dl.title">下载</h2>
+        <p class="dl-version" id="dl-version">正在获取最新版本…</p>
+        <div class="dl-grid" id="dl-grid">
+          <!-- populated from the latest GitHub release by app.js -->
+        </div>
+        <p class="dl-foot">
+          <span data-i18n="dl.foot">所有版本见</span>
+          <a href="https://github.com/Xheldon/Yoke-Calendar/releases">GitHub Releases</a>
+        </p>
+      </section>
+
+      <!-- ── Changelog ── -->
+      <section class="changelog" id="changelog">
+        <h2 class="section-title" data-i18n="cl.title">最近更新</h2>
+        <div class="cl-card" id="cl-card">
+          <p class="muted" data-i18n="cl.loading">加载中…</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-row">
+        <a class="brand small" href="/">
+          <img src="assets/icon.png" alt="" width="22" height="22" />
+          <span>Yoke Calendar</span>
+        </a>
+        <nav class="footer-links">
+          <a href="docs.html" data-i18n="footer.docs">文档</a>
+          <a href="https://github.com/Xheldon/Yoke-Calendar" data-i18n="footer.github">GitHub</a>
+          <a href="https://github.com/Xheldon/Yoke-Calendar/issues" data-i18n="footer.feedback">问题反馈</a>
+        </nav>
+      </div>
+      <p class="copyright">© <span id="year">2026</span> Xheldon · <span data-i18n="footer.tagline">以方向盘之名，掌控排期。</span></p>
+    </footer>
+
+    <script src="assets/i18n.js"></script>
+    <script src="assets/theme.js"></script>
+    <script src="assets/app.js"></script>
+  </body>
+</html>
