@@ -113,7 +113,9 @@ function renderRelease(rel) {
     grid.appendChild(col)
   }
 
-  // hero button → best guess for the visitor's OS, else the download section
+  // hero button → the best build for the visitor's OS. macOS shows the chip we
+  // guessed (the browser can't tell Apple Silicon from Intel), so the "more
+  // builds" link below jumps to the full grid where every arch/platform is listed.
   const hero = document.getElementById('hero-download')
   if (detected) {
     const mine = assets.filter((a) => platformOf(a.name) === detected)
@@ -125,10 +127,11 @@ function renderRelease(rel) {
           : mine[0]
     if (best) {
       hero.setAttribute('href', best.browser_download_url)
-      hero.textContent = t('dl.heroBest', { label: OS_LABEL[detected] })
-      document.getElementById('hero-meta').textContent = t('dl.heroOther', { v: version })
+      const label = detected === 'mac' ? OS_LABEL.mac + ' · ' + t('arch.arm') : OS_LABEL[detected]
+      hero.textContent = t('dl.heroBest', { label })
     }
   }
+  document.getElementById('hero-meta').innerHTML = `${version} · <a href="#download">${t('dl.heroMore')}</a>`
 
   // changelog
   const cl = document.getElementById('cl-card')

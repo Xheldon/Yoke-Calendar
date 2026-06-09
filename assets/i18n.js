@@ -79,11 +79,11 @@
     'dl.download': { zh: '下载', en: 'Download' },
     'dl.none': { zh: '该平台暂未提供', en: 'Not available for this platform yet' },
     'dl.foot': { zh: '所有版本见', en: 'All versions on' },
-    'dl.heroBest': { zh: '下载 {label}', en: 'Download for {label}' },
-    'dl.heroOther': { zh: '{v} · 也支持其它平台 ↓', en: '{v} · also on other platforms ↓' },
+    'dl.heroBest': { zh: '下载 {label}', en: 'Download {label}' },
+    'dl.heroMore': { zh: '更多架构 & 平台 ↓', en: 'More builds & platforms ↓' },
     'arch.arm': { zh: 'Apple Silicon', en: 'Apple Silicon' },
     'arch.intel': { zh: 'Intel', en: 'Intel' },
-    'arch.winAll': { zh: 'x64 / ARM64 / x86', en: 'x64 / ARM64 / x86' },
+    'arch.winAll': { zh: '通用包', en: 'Universal' },
     'arch.generic': { zh: '安装包', en: 'Installer' },
 
     // ── changelog ──
