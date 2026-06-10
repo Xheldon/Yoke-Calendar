@@ -195,20 +195,44 @@ async function load() {
 
   document.getElementById('dl-version').textContent = t('dl.fetching')
 
-  try {
-    const cached = sessionStorage.getItem('yoke-rel')
-    const rel = cached
-      ? JSON.parse(cached)
-      : await fetch(`https://api.github.com/repos/${REPO}/releases/latest`).then((r) => {
-          if (!r.ok) throw new Error('no release')
-          return r.json()
-        })
-    if (!cached) sessionStorage.setItem('yoke-rel', JSON.stringify(rel))
-    currentRel = rel
-  } catch {
-    currentRel = null
+  // Stale-while-revalidate: paint the cached release instantly, then re-check the
+  // GitHub API in the background and update if a newer release shipped. The cache
+  // is timestamped { t, rel } (old un-timestamped entries are ignored), and we
+  // skip the re-check only within 60s to stay well under GitHub's unauthenticated
+  // rate limit on rapid refreshes.
+  const readCache = () => {
+    try {
+      const c = JSON.parse(sessionStorage.getItem('yoke-rel') || 'null')
+      if (c && c.rel) return c
+    } catch (_) {}
+    return null
   }
-  render()
+  const cache = readCache()
+  if (cache) {
+    currentRel = cache.rel
+    render()
+  }
+  if (!cache || Date.now() - cache.t > 60 * 1000) {
+    try {
+      const fresh = await fetch(`https://api.github.com/repos/${REPO}/releases/latest`, {
+        cache: 'no-store'
+      }).then((r) => {
+        if (!r.ok) throw new Error('no release')
+        return r.json()
+      })
+      try {
+        sessionStorage.setItem('yoke-rel', JSON.stringify({ t: Date.now(), rel: fresh }))
+      } catch (_) {}
+      currentRel = fresh
+      render()
+    } catch {
+      if (!cache) {
+        currentRel = null
+        render()
+      }
+      // otherwise keep showing the cached release (offline / rate-limited)
+    }
+  }
 }
 
 window.addEventListener('yoke:langchange', render)
