@@ -41,6 +41,9 @@
       .doc-body code { font-family: var(--mono); font-size: 13px; background: var(--panel-2); border: 1px solid var(--line-soft); padding: 1px 6px; border-radius: 5px; color: var(--accent-2); }
       .doc-body a { color: var(--accent-2); }
       .doc-body strong { color: var(--ink); }
+      .doc-body table { width: 100%; border-collapse: collapse; margin: 10px 0 4px; font-size: 14px; }
+      .doc-body th, .doc-body td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line-soft); color: var(--ink-2); }
+      .doc-body th { color: var(--ink); font-weight: 600; }
       .note { padding: 12px 16px; background: color-mix(in oklab, var(--accent) 8%, var(--panel)); border: 1px solid color-mix(in oklab, var(--accent) 28%, var(--line)); border-radius: 10px; margin: 14px 0; font-size: 14px; }
       @media (max-width: 800px) { .doc { grid-template-columns: 1fr; } .doc-nav { position: static; display: flex; flex-wrap: wrap; gap: 4px; } }
     </style>
@@ -74,75 +77,166 @@
         <nav class="doc-nav">
           <a href="#start">快速上手</a>
           <a href="#schedule">排期操作</a>
+          <a href="#manage">需求管理</a>
           <a href="#organize">业务线 / 阶段 / 标签</a>
+          <a href="#calendar">日历视图</a>
           <a href="#sync">多端同步</a>
           <a href="#ai">AI 总结</a>
-          <a href="#subs">日历订阅 / 节假日</a>
+          <a href="#subs">日历订阅与导出</a>
+          <a href="#custom">个性化</a>
           <a href="#data">数据与备份</a>
           <a href="#update">自动更新</a>
+          <a href="#keys">快捷键</a>
           <a href="#faq">常见问题</a>
         </nav>
 
         <article class="doc-body">
           <h2 id="start">快速上手</h2>
-          <p>下载对应平台的安装包并安装。首次启动是一个空文档（只含默认阶段），你可以：</p>
+          <p>下载安装后，第一次打开是一份空文档。界面分三栏：<strong>左侧</strong>是需求列表，<strong>中间</strong>是选中需求的详情，<strong>右侧</strong>是日历。</p>
           <ul>
-            <li>点左上角 <strong>新建需求</strong>（快捷键 <code>⌘N</code> / <code>Ctrl+N</code>）创建一个需求；</li>
-            <li>或直接在右侧日历上 <strong>拖拽划选</strong> 一段时间，开始排期。</li>
+            <li>按 <code>⌘N</code>（或点左上角 <strong>新建需求</strong>）创建一个需求；</li>
+            <li>也可以直接在日历上 <strong>拖拽划选</strong> 一段日期——排期窗口会弹出来，顺手就把需求建了。</li>
           </ul>
+          <p>排好的阶段会以彩色条出现在日历上，左侧列表同步显示它的起止时间和状态。</p>
 
           <h2 id="schedule">排期操作</h2>
-          <h3>划选排期</h3>
-          <p>在日历上按住拖动划选一段日期，弹出排期窗口。三种模式自动判断：</p>
+          <h3>在日历上划选</h3>
+          <p>按住拖动选中一段日期，松手弹出排期窗口。窗口会根据当下的情形自动切换：</p>
           <ul>
-            <li><strong>新建</strong>：没有选中需求时——填需求名、选业务线、选阶段；</li>
-            <li><strong>排期</strong>：选中了某个未排满的需求时——为它的某个阶段排期；</li>
-            <li><strong>调整</strong>：双击日历上已有的阶段色条——只调整它的排除天。</li>
+            <li><strong>没选中需求</strong> → 新建需求：填名字、选业务线、选阶段，一次完成；</li>
+            <li><strong>左侧选中了需求</strong> → 给它排期：挑一个还没排的阶段（排过的会标「已排期」）；</li>
+            <li>这两种情形在窗口里<strong>随时可以互相切换</strong>——「改为新建需求」「改为给已有需求排期」一个链接来回切。</li>
+          </ul>
+          <h3>双击</h3>
+          <ul>
+            <li><strong>双击空白的某一天</strong>：给那一天单独排期，弹出的窗口和划选一样；</li>
+            <li><strong>双击已有的色条</strong>：调整这段排期的排除天。</li>
           </ul>
           <h3>排除天</h3>
-          <p>排期窗口里可勾选 <strong>排除天</strong>（周末、节假日默认可一键排除），被排除的日期不计入工作日。</p>
-          <h3>拖拽微调</h3>
-          <p>落库后，直接在日历上拖动色条 <strong>移动 / 缩放</strong> 即可微调日期，所见即所得。</p>
+          <p>排期窗口下方列出范围内的每一天，<strong>点一下就排除 / 恢复</strong>；周末和节假日都有标注，「排除周末」一键全排掉，「清空」一键恢复。底部实时显示：共 X 天，排除 Y 天，实际 Z 天。</p>
+          <h3>排完之后，直接拖</h3>
+          <ul>
+            <li>拖动色条中间：整段平移；</li>
+            <li>拖动色条两端：修改开始 / 结束日期；</li>
+            <li>色条里的周末、节假日会自动变淡——它们不计入工作日。</li>
+          </ul>
+          <h3>右键与撤销</h3>
+          <ul>
+            <li><strong>右键色条</strong>：移除这个阶段的排期，或删除整个需求；</li>
+            <li>改错了就 <code>⌘Z</code> 撤销，<code>⌘⇧Z</code> 重做。</li>
+          </ul>
+
+          <h2 id="manage">需求管理</h2>
+          <h3>列表</h3>
+          <ul>
+            <li><strong>分组</strong>：按业务线 / 时间 / 阶段 / 状态，在列表右上角 ⋯ 菜单切换；</li>
+            <li><strong>排序</strong>：按开始或结束日期；再点一次当前排序可切换升序 / 降序；</li>
+            <li><strong>标签筛选</strong>：列表顶部的标签按钮，勾选后只显示带这些标签的需求；</li>
+            <li>已结束的需求自动收进「已结束」区，可整组折叠，也可在 ⋯ 菜单里隐藏。</li>
+          </ul>
+          <h3>搜索</h3>
+          <p><code>⌘F</code> 打开搜索，需求名、业务线、标签都能搜；上下键选择，回车直接定位——列表会自动展开分组并滚动到那一条。</p>
+          <h3>详情</h3>
+          <ul>
+            <li>点标题直接改名；</li>
+            <li>标题旁的颜色圆点可以给这个需求<strong>单独换颜色</strong>（默认跟业务线同色）；</li>
+            <li>⋯ 菜单：更换业务线、编辑复制格式、重置排期、删除需求；</li>
+            <li>标签：点 <strong>+</strong> 添加、<strong>×</strong> 移除，拖拽调整顺序。</li>
+          </ul>
+          <h3>一键复制排期文本</h3>
+          <p>详情页的复制按钮把这个需求变成一段现成的文字，直接贴进周报或群聊。格式自己定：在「编辑复制格式」里点击 <code>{{需求名}}</code> <code>{{业务线}}</code> <code>{{标签}}</code> <code>{{排期}}</code> 占位符插入模板，旁边实时预览效果。</p>
+          <h3>富文本备注</h3>
+          <ul>
+            <li>支持标题、加粗、列表、引用、代码；</li>
+            <li>图片<strong>直接粘贴或拖进来</strong>；右键图片可以把图复制走；</li>
+            <li><code>⌘K</code> 给选中文字加链接；</li>
+            <li>从备注里复制内容贴到别处，得到的是干净的 Markdown / 富文本，图片一起带走；</li>
+            <li>全程自动保存。</li>
+          </ul>
+          <h3>排期一览</h3>
+          <p>详情底部列出每个阶段的日期和实际天数；鼠标移到阶段前的圆点上会变成 ×，点击即可移除该阶段的排期。</p>
 
           <h2 id="organize">业务线 / 阶段 / 标签</h2>
           <ul>
-            <li><strong>业务线</strong>：给需求分组的维度（用颜色区分），在侧栏 ⋯ → 业务线管理 维护；</li>
-            <li><strong>阶段</strong>：需求的推进阶段（默认 开发 / 联调 / 测试 / 上线），可在 阶段管理 自定义增删；</li>
-            <li><strong>标签</strong>：跨业务线的标记（如「人」），用于筛选。</li>
+            <li><strong>业务线</strong>：需求的分组维度，一条线一个颜色；</li>
+            <li><strong>阶段</strong>：需求推进的步骤，默认 开发 / 联调 / 测试 / 上线，可自由增删改、调顺序——用不上的阶段不排就行；</li>
+            <li><strong>标签</strong>：跨业务线的标记，标人、标优先级都合适。</li>
           </ul>
-          <div class="note">这是一个<strong>排期记录工具</strong>，不是任务管理——排期本身不分「完成 / 未完成」，只有 过去 / 进行中 / 未来。最后一个已排阶段结束日早于今天，即归入「已结束」历史区。某些阶段不排就表示不关心，不影响判断。</div>
+          <p>三者都在列表 ⋯ 菜单里管理。</p>
+          <h3>标签的显示</h3>
+          <p>日历和列表里标签显示为小圆徽标，详情里显示完整名字。每个标签可以<strong>挑名字里的任意一个字</strong>作为徽标（默认第一个字），也可以<strong>上传头像图片</strong>——比如「王霞」可以选「霞」字，或者直接放她的头像。</p>
+          <div class="note">这是一个<strong>排期记录工具</strong>，不是任务管理——排期本身不分「完成 / 未完成」，只有 过去 / 进行中 / 未来。最后一个已排阶段结束日早于今天，需求就归入「已结束」。</div>
+
+          <h2 id="calendar">日历视图</h2>
+          <ul>
+            <li>日历上下<strong>无限滚动</strong>；「今天」一键回到本周，◂ ▸ 按月切换；</li>
+            <li>节假日显示 <strong>休 / 班</strong> 角标和名称，可开启<strong>农历</strong>和小节日；节假日地区在 设置 → 日历 切换（支持中国大陆、港、台、美、日、英、德、法、新加坡、韩、澳、加、印）；</li>
+            <li>鼠标悬停时，当月边界会描边高亮；也可以在设置里改成<strong>常显</strong>的月份分隔线；</li>
+            <li>已结束的色条自动变淡；选中需求的色条带高亮描边，方便在一屏色条里找到它。</li>
+          </ul>
 
           <h2 id="sync">多端同步</h2>
           <p>设置 → 同步，二选一：</p>
           <ul>
-            <li><strong>GitHub</strong>：登录后指定一个私有仓库（<code>owner/name</code>），数据以 <code>yoke.json</code> 存入；</li>
-            <li><strong>WebDAV</strong>：填入坚果云 / Nextcloud 等的 WebDAV 地址与应用密码。</li>
+            <li><strong>GitHub</strong>：点登录，在浏览器里输入一次性代码完成授权，然后填一个私有仓库（<code>owner/name</code>），数据就存在那里；</li>
+            <li><strong>WebDAV</strong>：填服务地址、账号和应用密码（坚果云 / Nextcloud 等均可）。</li>
           </ul>
-          <p><strong>自动同步</strong>：可设 30 分钟 / 1 / 2 / 6 小时。后台定时对比本地与云端，以「更新时间较新」的一方为准（覆盖前自动留本地备份）。密钥经系统加密保存在本机，<strong>不随数据上传</strong>。</p>
+          <p><strong>自动同步</strong>可设 30 分钟 / 1 / 2 / 6 小时，也可以随时手动「拉取 / 推送」。外观偏好、AI 历史、备注图片要不要一起同步，各有独立开关。</p>
+          <div class="note">登录凭据只保存在你自己的电脑上，不会随数据上传。</div>
 
           <h2 id="ai">AI 总结</h2>
-          <p>设置 → AI 功能，两种调用方式：</p>
+          <p>点标题栏的「AI 总结」：</p>
           <ul>
-            <li><strong>API 接口</strong>：内置 OpenAI / Anthropic / Gemini / DeepSeek / 通义 / Kimi / 智谱 / 豆包 / OpenRouter / Groq / xAI / Mistral / Ollama 等预设——选服务商、填 Key 即可；每个服务商各自记住自己的 Key 与模型，切换不串。</li>
-            <li><strong>本地 Agent</strong>：复用本机已登录的 Claude Code / Codex CLI，免 API Key。</li>
+            <li>选<strong>时间范围</strong>：本周 / 本月 / 本季度 / 近 7 / 30 / 90 天；</li>
+            <li>选<strong>提示词</strong>：内置 周报、风险盘点、给领导汇报；自己改好的提示词可以「存为预设」，下次直接点；</li>
+            <li>点生成，完成后一键复制。</li>
           </ul>
-          <p>在 AI 窗口选时间范围 + 提示词（内置周报 / 风险盘点 / 对上汇报），一键生成总结。</p>
-
-          <h2 id="subs">日历订阅 / 节假日</h2>
+          <p>接入方式（设置 → AI）两种：</p>
           <ul>
-            <li><strong>订阅</strong>：设置 → 日历订阅，添加任意 <code>.ics</code> 地址或导入文件，作为只读叠加显示；</li>
-            <li><strong>节假日</strong>：内置中国法定节假日 + 农历 + 调休，可在 设置 → 日历 切换地区。</li>
+            <li><strong>API</strong>：选服务商、填 Key——支持 OpenAI / Claude / Gemini / DeepSeek / 通义 / Kimi / 智谱 / 豆包 等 14+；</li>
+            <li><strong>本机 Agent</strong>：装了 Claude Code 或 Codex CLI 的话直接复用，不需要 API Key。</li>
+          </ul>
+          <p>每次生成自动存入<strong>历史</strong>，按年份折叠，随时回看或删除。还没配置 AI 也能先点——会用本地示例让你看看效果。</p>
+
+          <h2 id="subs">日历订阅与导出</h2>
+          <ul>
+            <li><strong>订阅</strong>：设置 → 日历订阅，贴一个 <code>.ics</code> 地址或导入文件；事件以只读形式叠加到日历上，每个订阅可单独设颜色、开关、刷新；</li>
+            <li><strong>导出</strong>：把你的排期导出成 <code>.ics</code> 文件，可导入系统日历 / Outlook，或直接发给同事。</li>
+          </ul>
+
+          <h2 id="custom">个性化</h2>
+          <p>设置里可以调的（拣常用的说）：</p>
+          <ul>
+            <li><strong>外观</strong>：浅色 / 深色 / 跟随系统；强调色可换；界面字体多款可选；</li>
+            <li><strong>界面语言</strong>：中文 / English / 跟随系统；</li>
+            <li><strong>日历</strong>：色条样式（柔和 / 实色 / 描边）、周起始日（周日 / 周一）、月份分隔线（悬停 / 常显）；</li>
+            <li><strong>列表与弹窗</strong>：列表三种密度，排期窗口三种布局；</li>
+            <li><strong>天数统计</strong>：按「实际工作日」还是「自然日跨度」算，随你团队的习惯；</li>
+            <li><strong>托盘</strong>：关闭窗口时收进托盘继续后台同步（可关）；点托盘图标随时回到主界面；</li>
+            <li>还有自定义 CSS 入口，留给想折腾界面的人。</li>
           </ul>
 
           <h2 id="data">数据与备份</h2>
           <ul>
-            <li><strong>本地优先</strong>：数据存在你本机的数据目录，离线完全可用；</li>
-            <li><strong>数据目录</strong>：设置 → 系统 可查看 / 更改（「保险库」）；</li>
-            <li><strong>自动备份</strong>：每次保存前自动滚动备份，可在 设置 → 系统 → 备份 一键恢复。</li>
+            <li>数据保存在<strong>本机</strong>的一个文件夹里，设置 → 系统 可查看、打开或更改位置；</li>
+            <li>每次保存前自动留备份，需要时在 设置 → 系统 → 备份 一键恢复；</li>
+            <li>备注里删掉的图片，用「清理无用图片」一键回收磁盘空间；</li>
+            <li>「重置所有设置」只恢复外观与偏好，不动你的排期数据。</li>
           </ul>
 
           <h2 id="update">自动更新</h2>
-          <p>应用启动后会在后台静默检查并下载更新，左下角出现进度小窗；下载完成后点 <strong>重启更新</strong> 即生效（不点也会在下次退出时自动安装）。也可在 设置 → 关于 手动「检查更新」。安装包经签名 + 公证。</p>
+          <p>启动后会在后台静默检查并下载更新，左下角出现进度小窗；下载完点 <strong>重启应用</strong> 立即生效，不点的话下次退出时自动安装。也可以在 设置 → 关于 手动「检查更新」。安装包均经过签名（macOS 还有公证）。</p>
+
+          <h2 id="keys">快捷键</h2>
+          <table>
+            <tr><th>快捷键</th><th>作用</th></tr>
+            <tr><td><code>⌘N</code></td><td>新建需求</td></tr>
+            <tr><td><code>⌘F</code></td><td>搜索需求</td></tr>
+            <tr><td><code>⌘Z</code> / <code>⌘⇧Z</code></td><td>撤销 / 重做</td></tr>
+            <tr><td><code>⌘K</code></td><td>备注中给选中文字加链接</td></tr>
+            <tr><td><code>Esc</code></td><td>关闭弹窗</td></tr>
+          </table>
+          <p>Windows / Linux 上把 <code>⌘</code> 换成 <code>Ctrl</code>。</p>
 
           <h2 id="faq">常见问题</h2>
           <h3>Windows 安装能选路径吗？</h3>
@@ -150,9 +244,11 @@
           <h3>macOS 提示「无法验证开发者」？</h3>
           <p>正式发布的包已签名 + 公证，正常不会提示。若遇到，右键 → 打开 即可。</p>
           <h3>数据会上传到云吗？</h3>
-          <p>默认不会。只有你显式开启同步后，数据才会写入你指定的 GitHub 私有仓库 / WebDAV；密钥永远只在本机。</p>
+          <p>默认不会。只有你显式开启同步后，数据才会写入你指定的 GitHub 私有仓库 / WebDAV；登录凭据永远只在本机。</p>
+          <h3>AI 会读到我的数据吗？</h3>
+          <p>只有你点「生成」的那一刻，所选时间范围内的排期文本才会发给<strong>你自己配置的</strong>服务商或本机 CLI；不点就什么都不发。</p>
           <h3>支持哪些平台 / 架构？</h3>
-          <p>macOS（Intel + Apple Silicon）、Windows（x64 / ARM64 / x86）、Linux（AppImage）。</p>
+          <p>macOS（Apple Silicon + Intel）、Windows（x64 / ARM64 / x86 通用包）、Linux（AppImage）。</p>
         </article>
       </div>
 
@@ -161,85 +257,178 @@
         <nav class="doc-nav">
           <a href="#en-start">Getting started</a>
           <a href="#en-schedule">Scheduling</a>
-          <a href="#en-organize">Lines / phases / tags</a>
+          <a href="#en-manage">Managing requirements</a>
+          <a href="#en-organize">Lines / stages / tags</a>
+          <a href="#en-calendar">Calendar view</a>
           <a href="#en-sync">Multi-device sync</a>
           <a href="#en-ai">AI summaries</a>
-          <a href="#en-subs">Calendar feeds / holidays</a>
-          <a href="#en-data">Data &amp; backup</a>
+          <a href="#en-subs">Subscriptions &amp; export</a>
+          <a href="#en-custom">Customization</a>
+          <a href="#en-data">Data &amp; backups</a>
           <a href="#en-update">Auto-update</a>
+          <a href="#en-keys">Shortcuts</a>
           <a href="#en-faq">FAQ</a>
         </nav>
 
         <article class="doc-body">
           <h2 id="en-start">Getting started</h2>
-          <p>Download the installer for your platform and install it. The first launch is an empty document (with just the default phases). You can:</p>
+          <p>Install and launch — you start with an empty document. The window has three panes: the <strong>requirement list</strong> on the left, the selected requirement's <strong>details</strong> in the middle, and the <strong>calendar</strong> on the right.</p>
           <ul>
-            <li>click <strong>New requirement</strong> in the top-left (shortcut <code>⌘N</code> / <code>Ctrl+N</code>) to create one;</li>
-            <li>or <strong>drag to select</strong> a span of time right on the calendar to start scheduling.</li>
+            <li>Press <code>Ctrl/⌘N</code> (or click <strong>New requirement</strong>) to create one;</li>
+            <li>or just <strong>drag across dates</strong> on the calendar — the scheduling dialog opens and creates the requirement along the way.</li>
           </ul>
+          <p>Scheduled stages appear as colored bars on the calendar, and the list shows each requirement's date range and status.</p>
 
           <h2 id="en-schedule">Scheduling</h2>
-          <h3>Drag to schedule</h3>
-          <p>Press and drag across a date range on the calendar to open the scheduling dialog. It picks one of three modes automatically:</p>
+          <h3>Drag on the calendar</h3>
+          <p>Press and drag across a date range; the dialog adapts to what you're doing:</p>
           <ul>
-            <li><strong>New</strong> — when no requirement is selected: enter a name, pick a business line, pick a phase;</li>
-            <li><strong>Schedule</strong> — when a not-yet-complete requirement is selected: schedule one of its phases;</li>
-            <li><strong>Adjust</strong> — double-click an existing phase bar on the calendar: edit only its excluded days.</li>
+            <li><strong>No requirement selected</strong> → create one: name it, pick a line and a stage in one go;</li>
+            <li><strong>A requirement is selected</strong> → schedule it: pick one of its unscheduled stages (scheduled ones are marked);</li>
+            <li>You can <strong>switch between the two</strong> right inside the dialog — "create new" ↔ "schedule existing" is one link away.</li>
+          </ul>
+          <h3>Double-click</h3>
+          <ul>
+            <li><strong>Double-click an empty day</strong> to schedule just that day — same dialog, single-day range;</li>
+            <li><strong>Double-click an existing bar</strong> to adjust its excluded days.</li>
           </ul>
           <h3>Excluded days</h3>
-          <p>In the dialog you can tick <strong>excluded days</strong> (weekends and holidays can be excluded in one click); excluded dates don't count as working days.</p>
-          <h3>Drag to fine-tune</h3>
-          <p>Once saved, drag the color bar on the calendar to <strong>move / resize</strong> it — what you see is what you get.</p>
-
-          <h2 id="en-organize">Lines / phases / tags</h2>
+          <p>The dialog lists every day in the range — <strong>click to exclude / restore</strong>. Weekends and holidays are labelled; "exclude weekends" does them all in one click, "clear" restores everything. A live counter shows: X days total, Y excluded, Z working.</p>
+          <h3>After it lands, just drag</h3>
           <ul>
-            <li><strong>Business lines</strong> — the dimension that groups requirements (distinguished by color); manage them under sidebar ⋯ → Manage business lines;</li>
-            <li><strong>Phases</strong> — a requirement's stages (dev / integration / QA / release by default); add or remove your own under Manage phases;</li>
-            <li><strong>Tags</strong> — cross-line markers (e.g. a person) used for filtering.</li>
+            <li>Drag the middle of a bar to move the whole stage;</li>
+            <li>drag either end to change its start / end;</li>
+            <li>weekends and holidays inside a bar are dimmed — they don't count as working days.</li>
           </ul>
-          <div class="note">This is a <strong>scheduling record tool</strong>, not task management — a schedule itself has no "done / not done", only past / in progress / future. When the last scheduled phase ends before today, the requirement moves into the "Ended" history area. Leaving some phases unscheduled just means you aren't tracking them — it doesn't affect this.</div>
+          <h3>Right-click &amp; undo</h3>
+          <ul>
+            <li><strong>Right-click a bar</strong> to remove that stage's schedule, or delete the whole requirement;</li>
+            <li>slipped? <code>Ctrl/⌘Z</code> undoes, <code>Ctrl/⌘⇧Z</code> redoes.</li>
+          </ul>
+
+          <h2 id="en-manage">Managing requirements</h2>
+          <h3>The list</h3>
+          <ul>
+            <li><strong>Group</strong> by line / time / stage / status — via the ⋯ menu at the top;</li>
+            <li><strong>Sort</strong> by start or end date; click the active sort again to flip ascending / descending;</li>
+            <li><strong>Filter by tag</strong> with the tag button — only requirements carrying the checked tags show;</li>
+            <li>Ended requirements collect in a collapsible <strong>Ended</strong> section, which you can also hide entirely.</li>
+          </ul>
+          <h3>Search</h3>
+          <p><code>Ctrl/⌘F</code> opens search — match by requirement name, line, or tag; arrow keys to choose, Enter to jump. The list unfolds the right group and scrolls to it.</p>
+          <h3>Details</h3>
+          <ul>
+            <li>Click the title to rename;</li>
+            <li>the color dot gives this requirement <strong>its own color</strong> (defaults to the line's);</li>
+            <li>⋯ menu: change line, edit the copy format, reset the schedule, delete;</li>
+            <li>tags: <strong>+</strong> to add, <strong>×</strong> to remove, drag to reorder.</li>
+          </ul>
+          <h3>Copy as text</h3>
+          <p>The copy button turns the requirement into ready-to-paste text for a weekly report or chat. The format is yours: in "edit copy format", click the <code>{{需求名}}</code> <code>{{业务线}}</code> <code>{{标签}}</code> <code>{{排期}}</code> placeholder chips to build the template, with a live preview beside it.</p>
+          <h3>Rich-text notes</h3>
+          <ul>
+            <li>Headings, bold, lists, quotes, code;</li>
+            <li><strong>paste or drop images</strong> straight in; right-click an image to copy it back out;</li>
+            <li><code>Ctrl/⌘K</code> links the selected text;</li>
+            <li>copying out of a note gives clean Markdown / rich text — images included;</li>
+            <li>everything autosaves.</li>
+          </ul>
+          <h3>Schedule overview</h3>
+          <p>The bottom of the details pane lists each stage's dates and working-day count; hover a stage's dot and it becomes an × — click to remove that stage's schedule.</p>
+
+          <h2 id="en-organize">Lines / stages / tags</h2>
+          <ul>
+            <li><strong>Business lines</strong> group requirements — one color per line;</li>
+            <li><strong>Stages</strong> are the steps work moves through (Dev / Integration / QA / Release by default) — add, remove and reorder freely; just don't schedule the ones you don't care about;</li>
+            <li><strong>Tags</strong> cut across lines — people and priorities both work well.</li>
+          </ul>
+          <p>All three are managed from the list's ⋯ menu.</p>
+          <h3>How tags display</h3>
+          <p>On the calendar and in the list, tags show as small round badges; details show the full name. Each tag can use <strong>any character of its name</strong> as the badge (first by default) — or <strong>an uploaded avatar image</strong>. So "Jane Smith" can badge as "J", "S", or her photo.</p>
+          <div class="note">This is a <strong>scheduling record tool</strong>, not task management — a schedule has no "done / not done", only past / in progress / future. Once the last scheduled stage ends before today, the requirement moves to "Ended".</div>
+
+          <h2 id="en-calendar">Calendar view</h2>
+          <ul>
+            <li>The calendar <strong>scrolls endlessly</strong>; "Today" snaps back to this week, ◂ ▸ step by month;</li>
+            <li>holiday badges and names, optional <strong>lunar calendar</strong> and minor festivals; switch the holiday region under Settings → Calendar (CN / HK / TW / US / JP / GB / DE / FR / SG / KR / AU / CA / IN);</li>
+            <li>hovering highlights the outline of that month — or turn on <strong>always-visible</strong> month divider lines in Settings;</li>
+            <li>ended bars fade automatically; the selected requirement's bars get a highlight ring so they're easy to spot.</li>
+          </ul>
 
           <h2 id="en-sync">Multi-device sync</h2>
           <p>Settings → Sync, pick one:</p>
           <ul>
-            <li><strong>GitHub</strong> — after signing in, point to a private repo (<code>owner/name</code>); data is stored as <code>yoke.json</code>;</li>
-            <li><strong>WebDAV</strong> — enter the WebDAV URL and app password for Nextcloud, ownCloud, etc.</li>
+            <li><strong>GitHub</strong> — click sign in, enter the one-time code in your browser, then point to a private repo (<code>owner/name</code>); your data lives there;</li>
+            <li><strong>WebDAV</strong> — enter the server URL, account, and app password (Nextcloud etc.).</li>
           </ul>
-          <p><strong>Auto-sync</strong> — every 30 min / 1 / 2 / 6 hours. It periodically compares local and cloud and keeps whichever was updated more recently (a local backup is kept before any overwrite). Keys are encrypted by the system on your machine and <strong>never uploaded with your data</strong>.</p>
+          <p><strong>Auto-sync</strong> runs every 30 min / 1 / 2 / 6 hours, and manual "pull / push" is always available. Whether appearance preferences, AI history and note images travel along — each has its own switch.</p>
+          <div class="note">Your credentials stay on your machine — they are never uploaded with your data.</div>
 
           <h2 id="en-ai">AI summaries</h2>
-          <p>Settings → AI, two ways to call it:</p>
+          <p>Click "AI Summary" in the title bar:</p>
           <ul>
-            <li><strong>API</strong> — presets for OpenAI / Anthropic / Gemini / DeepSeek / Qwen / Kimi / Zhipu / Doubao / OpenRouter / Groq / xAI / Mistral / Ollama and more — pick a provider, enter a key. Each provider remembers its own key and model, so switching never crosses wires.</li>
-            <li><strong>Local agent</strong> — reuse the Claude Code / Codex CLI you're already signed into locally, no API key needed.</li>
+            <li>pick a <strong>time range</strong>: this week / month / quarter, or the last 7 / 30 / 90 days;</li>
+            <li>pick a <strong>prompt</strong>: built-in weekly report, risk review, exec update — and your own edits can be <strong>saved as presets</strong>;</li>
+            <li>generate, then copy with one click.</li>
           </ul>
-          <p>In the AI window, choose a time range + prompt (built-in weekly report / risk review / status update) and generate a summary in one click.</p>
-
-          <h2 id="en-subs">Calendar feeds / holidays</h2>
+          <p>Two ways to connect (Settings → AI):</p>
           <ul>
-            <li><strong>Feeds</strong> — Settings → Calendar feeds, add any <code>.ics</code> URL or import a file to show as a read-only overlay;</li>
-            <li><strong>Holidays</strong> — built-in Chinese statutory holidays + lunar calendar + make-up workdays; switch region under Settings → Calendar.</li>
+            <li><strong>API</strong> — pick a provider and paste a key: OpenAI / Claude / Gemini / DeepSeek / Qwen / Kimi / Zhipu / Doubao and 14+ more;</li>
+            <li><strong>Local agent</strong> — if Claude Code or Codex CLI is installed, reuse it. No API key needed.</li>
+          </ul>
+          <p>Every run is saved to <strong>history</strong>, folded by year — review or delete anytime. Haven't configured AI yet? Hit generate anyway and a local sample shows you what it looks like.</p>
+
+          <h2 id="en-subs">Subscriptions &amp; export</h2>
+          <ul>
+            <li><strong>Subscribe</strong> — Settings → Calendar feeds: paste an <code>.ics</code> URL or import a file; events overlay read-only on the calendar, each feed with its own color, toggle and refresh;</li>
+            <li><strong>Export</strong> — turn your schedule into an <code>.ics</code> file for Apple Calendar / Outlook, or to hand to a teammate.</li>
           </ul>
 
-          <h2 id="en-data">Data &amp; backup</h2>
+          <h2 id="en-custom">Customization</h2>
+          <p>The highlights from Settings:</p>
           <ul>
-            <li><strong>Local-first</strong> — data lives in a folder on your machine and works fully offline;</li>
-            <li><strong>Data folder</strong> — view / change it under Settings → System (the "vault");</li>
-            <li><strong>Auto-backup</strong> — a rolling backup is made before every save; restore in one click under Settings → System → Backup.</li>
+            <li><strong>Appearance</strong>: light / dark / follow system; accent color; a choice of UI fonts;</li>
+            <li><strong>Language</strong>: 中文 / English / follow system;</li>
+            <li><strong>Calendar</strong>: bar style (soft / solid / outline), week start (Sun / Mon), month dividers (hover / always);</li>
+            <li><strong>List &amp; dialog</strong>: three list densities, three scheduling-dialog layouts;</li>
+            <li><strong>Day counting</strong>: working days or calendar span — whichever your team uses;</li>
+            <li><strong>Tray</strong>: closing the window keeps it in the tray, still syncing (optional); click the tray icon to bring it back;</li>
+            <li>and a custom CSS box, for those who like to tinker.</li>
+          </ul>
+
+          <h2 id="en-data">Data &amp; backups</h2>
+          <ul>
+            <li>Your data lives in a folder <strong>on your machine</strong> — view, open or relocate it under Settings → System;</li>
+            <li>a rolling backup is taken before every save; restore in one click under Settings → System → Backups;</li>
+            <li>images deleted from notes can be reclaimed with "clean unused images";</li>
+            <li>"Reset all settings" restores appearance and preferences only — your scheduling data is untouched.</li>
           </ul>
 
           <h2 id="en-update">Auto-update</h2>
-          <p>On launch the app quietly checks for and downloads updates in the background, with a small progress widget in the bottom-left; when it's ready, click <strong>Restart to update</strong> (or it installs automatically on next quit). You can also check manually under Settings → About. Installers are signed + notarized.</p>
+          <p>The app quietly checks and downloads updates in the background; a small progress card appears in the bottom-left. Click <strong>Restart</strong> to apply now, or it installs on next quit. Manual check: Settings → About. All installers are signed (and notarized on macOS).</p>
+
+          <h2 id="en-keys">Shortcuts</h2>
+          <table>
+            <tr><th>Shortcut</th><th>Action</th></tr>
+            <tr><td><code>⌘N</code></td><td>New requirement</td></tr>
+            <tr><td><code>⌘F</code></td><td>Search requirements</td></tr>
+            <tr><td><code>⌘Z</code> / <code>⌘⇧Z</code></td><td>Undo / redo</td></tr>
+            <tr><td><code>⌘K</code></td><td>Link selected text in a note</td></tr>
+            <tr><td><code>Esc</code></td><td>Close dialog</td></tr>
+          </table>
+          <p>On Windows / Linux, replace <code>⌘</code> with <code>Ctrl</code>.</p>
 
           <h2 id="en-faq">FAQ</h2>
           <h3>Can I choose the install path on Windows?</h3>
-          <p>Yes. The installer has a "Choose install location" page; it installs per-user by default (no admin needed) and can go on any drive.</p>
+          <p>Yes. The installer has a "choose install location" page; it installs per-user by default (no admin needed) and can go on any drive.</p>
           <h3>macOS says "cannot verify the developer"?</h3>
           <p>Official builds are signed + notarized, so normally you won't see this. If you do, right-click → Open.</p>
           <h3>Is my data uploaded to the cloud?</h3>
-          <p>Not by default. Only after you explicitly enable sync is data written to your chosen private GitHub repo / WebDAV; keys always stay on your machine.</p>
-          <h3>Which platforms / architectures are supported?</h3>
-          <p>macOS (Intel + Apple Silicon), Windows (x64 / ARM64 / x86), Linux (AppImage).</p>
+          <p>Not by default. Only after you explicitly enable sync is data written to your chosen private GitHub repo / WebDAV; credentials always stay on your machine.</p>
+          <h3>Does AI read my data?</h3>
+          <p>Only at the moment you click "generate" — the schedule text for the range you picked is sent to <strong>the provider you configured</strong> (or your local CLI). Don't click, and nothing is sent.</p>
+          <h3>Which platforms / architectures?</h3>
+          <p>macOS (Apple Silicon + Intel), Windows (one universal installer: x64 / ARM64 / x86), Linux (AppImage).</p>
         </article>
       </div>
     </div>
