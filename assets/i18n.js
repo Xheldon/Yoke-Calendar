@@ -66,6 +66,38 @@
       en: 'Signed and notarized installers, downloaded silently in the background, applied on restart. Covers macOS / Windows / Linux.'
     },
 
+    // ── craft (feature close-ups) ──
+    'craft.title': { zh: '细节，值得放大看', en: 'Details that hold up close' },
+    'craft.lede': {
+      zh: '每一处交互都按桌面应用的标准打磨——这里挑五处。',
+      en: 'Every interaction is built to desktop standards — here are five.'
+    },
+    'craft.schedule.t': { zh: '划选即排期，工作日实时计算', en: 'Drag to schedule, working days counted live' },
+    'craft.schedule.d': {
+      zh: '在日历上拖出一段时间，选好业务线和阶段；法定节假日自动标出，点一下即可排除某天，底部把工作日数实时算给你看。',
+      en: 'Drag across the calendar, pick a line and a stage. Public holidays are flagged automatically, any day can be excluded with a click, and the working-day count updates live at the bottom.'
+    },
+    'craft.calendar.t': { zh: '节假日、农历、调休，开箱即用', en: 'Holidays, lunar dates and make-up days, out of the box' },
+    'craft.calendar.d': {
+      zh: '内置多地区法定节假日——含中国调休的「休 / 班」角标——以及农历；周末与假期自动淡化，排期色条上的头像让「谁在做什么」一目了然。',
+      en: 'Built-in public holidays for many regions — including China\'s make-up day badges — plus the lunar calendar. Weekends and holidays fade back, and avatars on the bars show who is on what at a glance.'
+    },
+    'craft.detail.t': { zh: '一个需求的全部上下文', en: 'Everything about a requirement, in one place' },
+    'craft.detail.d': {
+      zh: '富文本备注支持标题、列表、引用、代码块与图片粘贴；标签可以用同事头像，状态、阶段与排期始终钉在手边。',
+      en: 'Rich-text notes with headings, lists, quotes, code blocks and pasted images. Tags can be teammates\' avatars, and status, stages and dates stay pinned at hand.'
+    },
+    'craft.ai.t': { zh: 'AI 替你写周报', en: 'AI writes the weekly report' },
+    'craft.ai.d': {
+      zh: '选个时间范围，AI 按业务线汇总进行中与已结束、标出风险与下周节点；生成历史随时复制，14+ 服务商或本机 CLI 任选。',
+      en: 'Pick a range and AI sums up what\'s in flight and what shipped, flags risks and next week\'s milestones. History is one click to copy; bring any of 14+ providers or your local CLI.'
+    },
+    'craft.settings.t': { zh: '更多个性化，等你探索', en: 'More to make it yours' },
+    'craft.settings.d': {
+      zh: '浅色四款、深色四款主题底色，强调色、界面字体、每周起始日……还有自定义 CSS 兜底，把它调成你的样子。',
+      en: 'Four light and four dark base palettes, accent color, interface font, first day of the week… and custom CSS when you want to go further.'
+    },
+
     // ── download (mostly rendered by app.js via YokeI18n.t) ──
     'dl.title': { zh: '下载', en: 'Download' },
     'dl.fetching': { zh: '正在获取最新版本…', en: 'Fetching the latest version…' },

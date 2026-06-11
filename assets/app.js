@@ -24,9 +24,21 @@ function heroShotSrc() {
 function syncHeroShot() {
   const shot = document.getElementById('hero-shot')
   if (shot && !shot.getAttribute('src').endsWith(heroShotSrc())) shot.setAttribute('src', heroShotSrc())
+  // feature shots follow the same {theme}_{lang} convention: assets/feat_<key>_<theme>_<lang>.png
+  const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light'
+  const lang = document.documentElement.getAttribute('data-lang') === 'en' ? 'en' : 'cn'
+  document.querySelectorAll('img[data-shot]').forEach((img) => {
+    const want = `assets/${img.getAttribute('data-shot')}_${theme}_${lang}.png`
+    if (!img.getAttribute('src').endsWith(want)) img.setAttribute('src', want)
+  })
 }
 function preloadShots() {
   for (const n of ['light_cn', 'dark_cn', 'light_en', 'dark_en']) new Image().src = `assets/${n}.png`
+  // opposite-theme feature shots for the current language → instant theme toggle
+  const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'
+  const lang = document.documentElement.getAttribute('data-lang') === 'en' ? 'en' : 'cn'
+  for (const k of ['schedule', 'calendar', 'detail', 'ai', 'settings'])
+    new Image().src = `assets/feat_${k}_${theme}_${lang}.png`
 }
 
 // ── visitor OS (best-effort; arch on macOS isn't reliably exposed, so we just

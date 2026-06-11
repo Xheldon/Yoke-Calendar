@@ -249,6 +249,33 @@ section { padding: 0 max(20px, calc((100vw - var(--max)) / 2)); }
 .card h3 { margin: 0 0 8px; font-size: 17px; }
 .card p { margin: 0; color: var(--ink-2); font-size: 14px; }
 
+/* ── craft (feature close-ups) ── */
+.craft { padding: 30px 24px 86px; max-width: var(--max); margin: 0 auto; scroll-margin-top: 70px; }
+.craft-lede { text-align: center; color: var(--ink-2); margin: -22px 0 54px; font-size: 16px; }
+.craft-rows { display: flex; flex-direction: column; gap: 72px; }
+.craft-row { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: 48px; align-items: center; }
+.craft-row:nth-child(even) .craft-text { order: 2; }
+.craft-text h3 { font-size: 22px; letter-spacing: -0.01em; margin: 0 0 10px; }
+.craft-text p { color: var(--ink-2); line-height: 1.75; font-size: 15px; margin: 0; }
+.craft-shot { margin: 0; }
+.craft-shot img {
+  display: block;
+  max-width: 100%;
+  max-height: 480px;
+  width: auto;
+  height: auto;
+  margin-inline: auto;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.10);
+}
+[data-theme='dark'] .craft-shot img { box-shadow: 0 14px 36px rgba(0, 0, 0, 0.45); }
+@media (max-width: 860px) {
+  .craft-row, .craft-row:nth-child(even) { grid-template-columns: 1fr; gap: 18px; }
+  .craft-row:nth-child(even) .craft-text { order: 0; }
+  .craft-rows { gap: 52px; }
+}
+
 /* ── download ── */
 .dl-version { text-align: center; margin: -22px 0 30px; color: var(--ink-3); font-size: 14px; }
 .dl-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; max-width: 880px; margin: 0 auto; }
