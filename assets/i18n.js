@@ -19,8 +19,8 @@
     'toggle.lang': { zh: '切换语言（中文 / English）', en: 'Switch language (中文 / English)' },
 
     // ── hero ──
-    'hero.eyebrow': { zh: '桌面工作排期日历', en: 'Desktop scheduling calendar' },
-    'hero.h1': { zh: '把握排期', en: 'Own your schedule.' },
+    'hero.eyebrow': { zh: 'Beta 公测中', en: 'Public Beta' },
+    'hero.h1': { zh: '掌控排期', en: 'Own your schedule.' },
     'hero.lede': {
       zh: '个人和团队的桌面排期工具。',
       en: 'A desktop scheduling tool for individuals and teams.'
@@ -69,7 +69,7 @@
     // ── download (mostly rendered by app.js via YokeI18n.t) ──
     'dl.title': { zh: '下载', en: 'Download' },
     'dl.fetching': { zh: '正在获取最新版本…', en: 'Fetching the latest version…' },
-    'dl.latest': { zh: '最新版本 {v} · {date}', en: 'Latest {v} · {date}' },
+    'dl.latest': { zh: '最新版本 {v} Beta · {date}', en: 'Latest {v} Beta · {date}' },
     'dl.soon': { zh: '即将发布首个版本', en: 'First release coming soon' },
     'dl.empty': {
       zh: '还没有正式发布。可前往 GitHub Releases 关注最新动态。',
@@ -102,8 +102,8 @@
     'footer.github': { zh: 'GitHub', en: 'GitHub' },
     'footer.feedback': { zh: '问题反馈', en: 'Feedback' },
     'footer.tagline': {
-      zh: '以方向盘之名，掌控排期。',
-      en: 'Take the wheel on your schedule.'
+      zh: '掌控排期。',
+      en: 'Own your schedule.'
     },
 
     // ── per-page <title> / <meta> ──
