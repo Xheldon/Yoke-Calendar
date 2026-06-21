@@ -105,7 +105,7 @@
           <ul>
             <li><strong>没选中需求</strong> → 新建需求：填名字、选业务线、选阶段，一次完成；</li>
             <li><strong>左侧选中了需求</strong> → 给它排期：挑一个还没排的阶段（排过的会标「已排期」）；</li>
-            <li>这两种情形在窗口里<strong>随时可以互相切换</strong>——「改为新建需求」「改为给已有需求排期」一个链接来回切。</li>
+            <li>从已选中的需求打开排期窗口时，可用「<strong>改为新建需求</strong>」与「<strong>返回排期</strong>」两个链接来回切换；从空白处直接划选则是新建需求。</li>
           </ul>
           <h3>双击</h3>
           <ul>
@@ -132,7 +132,7 @@
             <li><strong>分组</strong>：按业务线 / 时间 / 阶段 / 状态，在列表右上角 ⋯ 菜单切换；</li>
             <li><strong>排序</strong>：按开始或结束日期；再点一次当前排序可切换升序 / 降序；</li>
             <li><strong>标签筛选</strong>：列表顶部的标签按钮，勾选后只显示带这些标签的需求；</li>
-            <li>已结束的需求自动收进「已结束」区，可整组折叠，也可在 ⋯ 菜单里隐藏。</li>
+            <li>已结束的需求<strong>默认隐藏</strong>；在 ⋯ 菜单点「显示已结束」即可展开成可折叠的「已结束」区，区头也能再次隐藏。</li>
           </ul>
           <h3>搜索</h3>
           <p><code>⌘F</code> 打开搜索，需求名、业务线、标签都能搜；上下键选择，回车直接定位——列表会自动展开分组并滚动到那一条。</p>
@@ -176,24 +176,26 @@
           </ul>
 
           <h2 id="sync">多端同步</h2>
-          <p>设置 → 同步，二选一：</p>
+          <p>设置 → 同步，三选一：</p>
           <ul>
-            <li><strong>GitHub</strong>：点登录，在浏览器里输入一次性代码完成授权，然后填一个私有仓库（<code>owner/name</code>），数据就存在那里；</li>
+            <li><strong>GitHub Gist</strong>（默认，最省事）：点登录、在浏览器里输入一次性代码授权即可，自动建一个私有 Gist 存数据，<strong>不用填仓库</strong>；</li>
+            <li><strong>GitHub 私有仓库</strong>：同样登录授权，再填一个仓库（<code>owner/name</code>），数据存在那里；</li>
             <li><strong>WebDAV</strong>：填服务地址、账号和应用密码（坚果云 / Nextcloud 等均可）。</li>
           </ul>
-          <p><strong>自动同步</strong>可设 30 分钟 / 1 / 2 / 6 小时，也可以随时手动「拉取 / 推送」。外观偏好、AI 历史、备注图片要不要一起同步，各有独立开关。</p>
-          <div class="note">登录凭据只保存在你自己的电脑上，不会随数据上传。</div>
+          <p><strong>端到端加密</strong>：可设置一个密码，数据加密后再上传，云端只存密文——没有密码谁也读不了。Gist 凭链接即可访问，所以<strong>必须加密</strong>；私有仓库 / WebDAV 可选。换密码会重新加密全部数据；在新设备上登录后会自动识别加密库并提示你输入密码解锁。</p>
+          <p><strong>同步是自动的</strong>，无需设置间隔——切走应用约 10 秒后、回到应用时、以及启动和退出时都会自动合并一次（拉远端 + 推本地，按字段 CRDT 合并，不丢更新）。也可以随时点 <strong>「同步」</strong> 按钮手动跑同一套流程。外观偏好、AI 历史、备注图片要不要一起同步，各有独立开关。</p>
+          <div class="note">登录凭据与加密密码只保存在你自己电脑上（且加密存储），不会随数据上传。</div>
 
           <h2 id="ai">AI 总结</h2>
           <p>点标题栏的「AI 总结」：</p>
           <ul>
-            <li>选<strong>时间范围</strong>：本周 / 本月 / 本季度 / 近 7 / 30 / 90 天；</li>
+            <li>选<strong>时间范围</strong>：本周 / 本月 / 本季度 / 近 7 / 30 / 90 天，或「自定义」挑一段日期；</li>
             <li>选<strong>提示词</strong>：内置 周报、风险盘点、给领导汇报；自己改好的提示词可以「存为预设」，下次直接点；</li>
             <li>点生成，完成后一键复制。</li>
           </ul>
           <p>接入方式（设置 → AI）两种：</p>
           <ul>
-            <li><strong>API</strong>：选服务商、填 Key——支持 OpenAI / Claude / Gemini / DeepSeek / 通义 / Kimi / 智谱 / 豆包 等 14+；</li>
+            <li><strong>API</strong>：选服务商、填 Key——内置 OpenAI / Claude / Gemini / DeepSeek / 通义 / Kimi / 智谱 / 豆包 等 12 家，另含 Ollama 本地与自定义端点；</li>
             <li><strong>本机 Agent</strong>：装了 Claude Code 或 Codex CLI 的话直接复用，不需要 API Key。</li>
           </ul>
           <p>每次生成自动存入<strong>历史</strong>，按年份折叠，随时回看或删除。还没配置 AI 也能先点——会用本地示例让你看看效果。</p>
@@ -207,7 +209,7 @@
           <h2 id="custom">个性化</h2>
           <p>设置里可以调的（拣常用的说）：</p>
           <ul>
-            <li><strong>外观</strong>：浅色 / 深色 / 跟随系统；强调色可换；界面字体多款可选；</li>
+            <li><strong>外观</strong>：浅色 / 深色 / 跟随系统；浅色、深色各有多款主题底色可挑；强调色可换；界面字体多款可选；</li>
             <li><strong>界面语言</strong>：中文 / English / 跟随系统；</li>
             <li><strong>日历</strong>：色条样式（柔和 / 实色 / 描边）、周起始日（周日 / 周一）、月份分隔线（悬停 / 常显）；</li>
             <li><strong>列表与弹窗</strong>：列表三种密度，排期窗口三种布局；</li>
@@ -244,7 +246,8 @@
           <h3>macOS 提示「无法验证开发者」？</h3>
           <p>正式发布的包已签名 + 公证，正常不会提示。若遇到，右键 → 打开 即可。</p>
           <h3>数据会上传到云吗？</h3>
-          <p>默认不会。只有你显式开启同步后，数据才会写入你指定的 GitHub 私有仓库 / WebDAV；登录凭据永远只在本机。</p>
+          <p>你的<strong>排期、备注等内容</strong>不会——只有你显式开启同步后，它们才会写入你指定的 GitHub Gist / 私有仓库 / WebDAV，且可端到端加密；登录凭据永远只在本机。</p>
+          <p>另外，应用<strong>默认会发送匿名使用统计与崩溃报告</strong>来帮助改进——<strong>绝不</strong>包含日历内容或备注，且已脱敏（去除地址、路径等）；不想发可在 设置 → 关于 随时关闭。</p>
           <h3>AI 会读到我的数据吗？</h3>
           <p>只有你点「生成」的那一刻，所选时间范围内的排期文本才会发给<strong>你自己配置的</strong>服务商或本机 CLI；不点就什么都不发。</p>
           <h3>支持哪些平台 / 架构？</h3>
@@ -285,7 +288,7 @@
           <ul>
             <li><strong>No requirement selected</strong> → create one: name it, pick a line and a stage in one go;</li>
             <li><strong>A requirement is selected</strong> → schedule it: pick one of its unscheduled stages (scheduled ones are marked);</li>
-            <li>You can <strong>switch between the two</strong> right inside the dialog — "create new" ↔ "schedule existing" is one link away.</li>
+            <li>If you opened the dialog from a selected requirement, "<strong>Create new instead</strong>" and "<strong>Back to …</strong>" links let you switch back and forth; dragging on a blank area starts a new requirement directly.</li>
           </ul>
           <h3>Double-click</h3>
           <ul>
@@ -312,7 +315,7 @@
             <li><strong>Group</strong> by line / time / stage / status — via the ⋯ menu at the top;</li>
             <li><strong>Sort</strong> by start or end date; click the active sort again to flip ascending / descending;</li>
             <li><strong>Filter by tag</strong> with the tag button — only requirements carrying the checked tags show;</li>
-            <li>Ended requirements collect in a collapsible <strong>Ended</strong> section, which you can also hide entirely.</li>
+            <li>Ended requirements are <strong>hidden by default</strong>; turn on "Show ended" in the ⋯ menu to reveal a collapsible <strong>Ended</strong> section (its header can hide it again).</li>
           </ul>
           <h3>Search</h3>
           <p><code>Ctrl/⌘F</code> opens search — match by requirement name, line, or tag; arrow keys to choose, Enter to jump. The list unfolds the right group and scrolls to it.</p>
@@ -356,24 +359,26 @@
           </ul>
 
           <h2 id="en-sync">Multi-device sync</h2>
-          <p>Settings → Sync, pick one:</p>
+          <p>Settings → Sync, pick one of three:</p>
           <ul>
-            <li><strong>GitHub</strong> — click sign in, enter the one-time code in your browser, then point to a private repo (<code>owner/name</code>); your data lives there;</li>
-            <li><strong>WebDAV</strong> — enter the server URL, account, and app password (Nextcloud etc.).</li>
+            <li><strong>GitHub Gist</strong> (default, simplest) — click sign in, enter the one-time code in your browser, and a private gist is created automatically; <strong>no repo to set up</strong>;</li>
+            <li><strong>GitHub private repo</strong> — same sign-in, then point to a repo (<code>owner/name</code>); your data lives there;</li>
+            <li><strong>WebDAV</strong> — enter the server URL, account, and app password (Nextcloud, etc.).</li>
           </ul>
-          <p><strong>Auto-sync</strong> runs every 30 min / 1 / 2 / 6 hours, and manual "pull / push" is always available. Whether appearance preferences, AI history and note images travel along — each has its own switch.</p>
-          <div class="note">Your credentials stay on your machine — they are never uploaded with your data.</div>
+          <p><strong>End-to-end encryption</strong>: set a passphrase and your data is encrypted before upload — the cloud holds only ciphertext that no one can read without it. Because a gist is readable by anyone with the link, encryption is <strong>required for Gist</strong> (optional for repo / WebDAV). Changing the passphrase re-encrypts everything; sign in on a second device and it auto-detects the encrypted store and prompts you to unlock.</p>
+          <p><strong>Sync is automatic</strong> — no interval to configure. It merges shortly after you switch away (~10s), when you return, and on launch and quit (pull + push, merged field-by-field via CRDT, no lost updates). You can also hit the <strong>Sync</strong> button anytime to run the same pass. Whether appearance preferences, AI history and note images travel along — each has its own switch.</p>
+          <div class="note">Your credentials and passphrase stay on your machine (stored encrypted) — never uploaded with your data.</div>
 
           <h2 id="en-ai">AI summaries</h2>
           <p>Click "AI Summary" in the title bar:</p>
           <ul>
-            <li>pick a <strong>time range</strong>: this week / month / quarter, or the last 7 / 30 / 90 days;</li>
+            <li>pick a <strong>time range</strong>: this week / month / quarter, the last 7 / 30 / 90 days, or a custom date range;</li>
             <li>pick a <strong>prompt</strong>: built-in weekly report, risk review, exec update — and your own edits can be <strong>saved as presets</strong>;</li>
             <li>generate, then copy with one click.</li>
           </ul>
           <p>Two ways to connect (Settings → AI):</p>
           <ul>
-            <li><strong>API</strong> — pick a provider and paste a key: OpenAI / Claude / Gemini / DeepSeek / Qwen / Kimi / Zhipu / Doubao and 14+ more;</li>
+            <li><strong>API</strong> — pick a provider and paste a key: OpenAI / Claude / Gemini / DeepSeek / Qwen / Kimi / Zhipu / Doubao and more — 12 hosted providers, plus local Ollama and a custom endpoint;</li>
             <li><strong>Local agent</strong> — if Claude Code or Codex CLI is installed, reuse it. No API key needed.</li>
           </ul>
           <p>Every run is saved to <strong>history</strong>, folded by year — review or delete anytime. Haven't configured AI yet? Hit generate anyway and a local sample shows you what it looks like.</p>
@@ -387,7 +392,7 @@
           <h2 id="en-custom">Customization</h2>
           <p>The highlights from Settings:</p>
           <ul>
-            <li><strong>Appearance</strong>: light / dark / follow system; accent color; a choice of UI fonts;</li>
+            <li><strong>Appearance</strong>: light / dark / follow system; several base palettes for light and dark each; accent color; a choice of UI fonts;</li>
             <li><strong>Language</strong>: 中文 / English / follow system;</li>
             <li><strong>Calendar</strong>: bar style (soft / solid / outline), week start (Sun / Mon), month dividers (hover / always);</li>
             <li><strong>List &amp; dialog</strong>: three list densities, three scheduling-dialog layouts;</li>
@@ -424,7 +429,8 @@
           <h3>macOS says "cannot verify the developer"?</h3>
           <p>Official builds are signed + notarized, so normally you won't see this. If you do, right-click → Open.</p>
           <h3>Is my data uploaded to the cloud?</h3>
-          <p>Not by default. Only after you explicitly enable sync is data written to your chosen private GitHub repo / WebDAV; credentials always stay on your machine.</p>
+          <p>Your <strong>schedule and note content</strong> isn't — it's only written to your chosen GitHub Gist / private repo / WebDAV after you explicitly enable sync, and it can be end-to-end encrypted; credentials always stay on your machine.</p>
+          <p>Separately, the app <strong>sends anonymous usage stats and crash reports by default</strong> to help improve it — <strong>never</strong> your calendar content or notes, and scrubbed (URLs, paths, etc. removed). Turn either off anytime in Settings → About.</p>
           <h3>Does AI read my data?</h3>
           <p>Only at the moment you click "generate" — the schedule text for the range you picked is sent to <strong>the provider you configured</strong> (or your local CLI). Don't click, and nothing is sent.</p>
           <h3>Which platforms / architectures?</h3>
