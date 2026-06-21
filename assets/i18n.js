@@ -69,8 +69,8 @@
     // ── craft (feature close-ups) ──
     'craft.title': { zh: '细节，值得放大看', en: 'Details that hold up close' },
     'craft.lede': {
-      zh: '每一处交互都按桌面应用的标准打磨——这里挑五处。',
-      en: 'Every interaction is built to desktop standards — here are five.'
+      zh: '每一处交互都按桌面应用的标准打磨——这里挑八处。',
+      en: 'Every interaction is built to desktop standards — here are eight.'
     },
     'craft.schedule.t': { zh: '划选即排期，工作日实时计算', en: 'Drag to schedule, working days counted live' },
     'craft.schedule.d': {
@@ -96,6 +96,21 @@
     'craft.settings.d': {
       zh: '浅色四款、深色四款主题底色，强调色、界面字体、每周起始日……还有自定义 CSS 兜底，把它调成你的样子。',
       en: 'Four light and four dark base palettes, accent color, interface font, first day of the week… and custom CSS when you want to go further.'
+    },
+    'craft.tags.t': { zh: '给标签配上头像，谁负责一眼认出', en: 'Put a face on every label' },
+    'craft.tags.d': {
+      zh: '标签可以是同事——用名字首字的色块，或上传一张头像；它会跟着出现在侧栏、日历色条和搜索结果里，「谁在做什么」一眼认出。',
+      en: 'Tags can be teammates — a colored initial or an uploaded avatar. They follow through the sidebar, calendar bars and search, so who-is-on-what reads at a glance.'
+    },
+    'craft.group.t': { zh: '一份列表，四种分组', en: 'One list, four groupings' },
+    'craft.group.d': {
+      zh: '左侧需求列表可按业务线、时间、阶段或状态分组，再配合开始 / 结束时间排序与「显示已结束」，需求再多也能快速归位。',
+      en: 'Group the requirement list by business line, time, stage or status — with start/end sorting and a "show finished" toggle — so even a long backlog stays navigable.'
+    },
+    'craft.search.t': { zh: '⌘F 直达任何需求', en: 'Press ⌘F to jump to anything' },
+    'craft.search.d': {
+      zh: '一个搜索框同时搜需求、业务线和标签；结果带上业务线与排期区间，回车即定位到日历与列表中的对应位置。',
+      en: 'One box searches requirements, business lines and tags at once. Results show the line and date range, and Enter jumps straight to it on the calendar and list.'
     },
 
     // ── download (mostly rendered by app.js via YokeI18n.t) ──
