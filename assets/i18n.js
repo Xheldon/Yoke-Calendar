@@ -38,7 +38,7 @@
     'feat.1.t': { zh: '划选即排期', en: 'Drag to schedule' },
     'feat.1.d': {
       zh: '在日历上拖拽划选时间段，直接落成需求的各个阶段（开发 / 联调 / 测试 / 上线）。泳道式色条，谁在做什么、下一步是什么，一眼可见。',
-      en: 'Drag across dates to lay down each phase of a requirement (dev / integration / QA / release). Swim-lane color bars show who is doing what, and what comes next, at a glance.'
+      en: 'Drag across dates to lay down each phase of a project (dev / integration / QA / release). Swim-lane color bars show who is doing what, and what comes next, at a glance.'
     },
     'feat.2.t': { zh: 'AI 进度总结', en: 'AI progress summaries' },
     'feat.2.d': {
@@ -75,17 +75,17 @@
     'craft.schedule.t': { zh: '划选即排期，工作日实时计算', en: 'Drag to schedule, working days counted live' },
     'craft.schedule.d': {
       zh: '在日历上拖出一段时间，选好业务线和阶段；法定节假日自动标出，点一下即可排除某天，底部把工作日数实时算给你看。',
-      en: 'Drag across the calendar, pick a line and a stage. Public holidays are flagged automatically, any day can be excluded with a click, and the working-day count updates live at the bottom.'
+      en: 'Drag across the calendar, pick a track and a phase. Public holidays are flagged automatically, any day can be excluded with a click, and the working-day count updates live at the bottom.'
     },
     'craft.calendar.t': { zh: '节假日、农历、调休，开箱即用', en: 'Holidays, lunar dates and make-up days, out of the box' },
     'craft.calendar.d': {
       zh: '内置多地区法定节假日——含中国调休的「休 / 班」角标——以及农历；周末与假期自动淡化，排期色条上的头像让「谁在做什么」一目了然。',
       en: 'Built-in public holidays for many regions — including China\'s make-up day badges — plus the lunar calendar. Weekends and holidays fade back, and avatars on the bars show who is on what at a glance.'
     },
-    'craft.detail.t': { zh: '一个需求的全部上下文', en: 'Everything about a requirement, in one place' },
+    'craft.detail.t': { zh: '一个需求的全部上下文', en: 'Everything about a project, in one place' },
     'craft.detail.d': {
       zh: '富文本备注支持标题、列表、引用、代码块与图片粘贴；标签可以用同事头像，状态、阶段与排期始终钉在手边。',
-      en: 'Rich-text notes with headings, lists, quotes, code blocks and pasted images. Tags can be teammates\' avatars, and status, stages and dates stay pinned at hand.'
+      en: 'Rich-text notes with headings, lists, quotes, code blocks and pasted images. Tags can be teammates\' avatars, and status, phases and dates stay pinned at hand.'
     },
     'craft.ai.t': { zh: 'AI 替你写周报', en: 'AI writes the weekly report' },
     'craft.ai.d': {
@@ -105,12 +105,12 @@
     'craft.group.t': { zh: '一份列表，四种分组', en: 'One list, four groupings' },
     'craft.group.d': {
       zh: '左侧需求列表可按业务线、时间、阶段或状态分组，再配合开始 / 结束时间排序与「显示已结束」，需求再多也能快速归位。',
-      en: 'Group the requirement list by business line, time, stage or status — with start/end sorting and a "show finished" toggle — so even a long backlog stays navigable.'
+      en: 'Group the project list by track, time, phase or status — with start/end sorting and a "show finished" toggle — so even a long backlog stays navigable.'
     },
     'craft.search.t': { zh: '⌘F 直达任何需求', en: 'Press ⌘F to jump to anything' },
     'craft.search.d': {
       zh: '一个搜索框同时搜需求、业务线和标签；结果带上业务线与排期区间，回车即定位到日历与列表中的对应位置。',
-      en: 'One box searches requirements, business lines and tags at once. Results show the line and date range, and Enter jumps straight to it on the calendar and list.'
+      en: 'One box searches projects, tracks and tags at once. Results show the track and date range, and Enter jumps straight to it on the calendar and list.'
     },
 
     // ── download (mostly rendered by app.js via YokeI18n.t) ──

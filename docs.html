@@ -260,8 +260,8 @@
         <nav class="doc-nav">
           <a href="#en-start">Getting started</a>
           <a href="#en-schedule">Scheduling</a>
-          <a href="#en-manage">Managing requirements</a>
-          <a href="#en-organize">Lines / stages / tags</a>
+          <a href="#en-manage">Managing projects</a>
+          <a href="#en-organize">Lines / phases / tags</a>
           <a href="#en-calendar">Calendar view</a>
           <a href="#en-sync">Multi-device sync</a>
           <a href="#en-ai">AI summaries</a>
@@ -275,20 +275,20 @@
 
         <article class="doc-body">
           <h2 id="en-start">Getting started</h2>
-          <p>Install and launch — you start with an empty document. The window has three panes: the <strong>requirement list</strong> on the left, the selected requirement's <strong>details</strong> in the middle, and the <strong>calendar</strong> on the right.</p>
+          <p>Install and launch — you start with an empty document. The window has three panes: the <strong>project list</strong> on the left, the selected project's <strong>details</strong> in the middle, and the <strong>calendar</strong> on the right.</p>
           <ul>
-            <li>Press <code>Ctrl/⌘N</code> (or click <strong>New requirement</strong>) to create one;</li>
-            <li>or just <strong>drag across dates</strong> on the calendar — the scheduling dialog opens and creates the requirement along the way.</li>
+            <li>Press <code>Ctrl/⌘N</code> (or click <strong>New project</strong>) to create one;</li>
+            <li>or just <strong>drag across dates</strong> on the calendar — the scheduling dialog opens and creates the project along the way.</li>
           </ul>
-          <p>Scheduled stages appear as colored bars on the calendar, and the list shows each requirement's date range and status.</p>
+          <p>Scheduled phases appear as colored bars on the calendar, and the list shows each project's date range and status.</p>
 
           <h2 id="en-schedule">Scheduling</h2>
           <h3>Drag on the calendar</h3>
           <p>Press and drag across a date range; the dialog adapts to what you're doing:</p>
           <ul>
-            <li><strong>No requirement selected</strong> → create one: name it, pick a line and a stage in one go;</li>
-            <li><strong>A requirement is selected</strong> → schedule it: pick one of its unscheduled stages (scheduled ones are marked);</li>
-            <li>If you opened the dialog from a selected requirement, "<strong>Create new instead</strong>" and "<strong>Back to …</strong>" links let you switch back and forth; dragging on a blank area starts a new requirement directly.</li>
+            <li><strong>No project selected</strong> → create one: name it, pick a track and a phase in one go;</li>
+            <li><strong>A project is selected</strong> → schedule it: pick one of its unscheduled phases (scheduled ones are marked);</li>
+            <li>If you opened the dialog from a selected project, "<strong>Create new instead</strong>" and "<strong>Back to …</strong>" links let you switch back and forth; dragging on a blank area starts a new project directly.</li>
           </ul>
           <h3>Double-click</h3>
           <ul>
@@ -299,35 +299,35 @@
           <p>The dialog lists every day in the range — <strong>click to exclude / restore</strong>. Weekends and holidays are labelled; "exclude weekends" does them all in one click, "clear" restores everything. A live counter shows: X days total, Y excluded, Z working.</p>
           <h3>After it lands, just drag</h3>
           <ul>
-            <li>Drag the middle of a bar to move the whole stage;</li>
+            <li>Drag the middle of a bar to move the whole phase;</li>
             <li>drag either end to change its start / end;</li>
             <li>weekends and holidays inside a bar are dimmed — they don't count as working days.</li>
           </ul>
           <h3>Right-click &amp; undo</h3>
           <ul>
-            <li><strong>Right-click a bar</strong> to remove that stage's schedule, or delete the whole requirement;</li>
+            <li><strong>Right-click a bar</strong> to remove that phase's schedule, or delete the whole project;</li>
             <li>slipped? <code>Ctrl/⌘Z</code> undoes, <code>Ctrl/⌘⇧Z</code> redoes.</li>
           </ul>
 
-          <h2 id="en-manage">Managing requirements</h2>
+          <h2 id="en-manage">Managing projects</h2>
           <h3>The list</h3>
           <ul>
-            <li><strong>Group</strong> by line / time / stage / status — via the ⋯ menu at the top;</li>
+            <li><strong>Group</strong> by track / time / phase / status — via the ⋯ menu at the top;</li>
             <li><strong>Sort</strong> by start or end date; click the active sort again to flip ascending / descending;</li>
-            <li><strong>Filter by tag</strong> with the tag button — only requirements carrying the checked tags show;</li>
-            <li>Ended requirements are <strong>hidden by default</strong>; turn on "Show ended" in the ⋯ menu to reveal a collapsible <strong>Ended</strong> section (its header can hide it again).</li>
+            <li><strong>Filter by tag</strong> with the tag button — only projects carrying the checked tags show;</li>
+            <li>Ended projects are <strong>hidden by default</strong>; turn on "Show ended" in the ⋯ menu to reveal a collapsible <strong>Ended</strong> section (its header can hide it again).</li>
           </ul>
           <h3>Search</h3>
-          <p><code>Ctrl/⌘F</code> opens search — match by requirement name, line, or tag; arrow keys to choose, Enter to jump. The list unfolds the right group and scrolls to it.</p>
+          <p><code>Ctrl/⌘F</code> opens search — match by project name, track, or tag; arrow keys to choose, Enter to jump. The list unfolds the right group and scrolls to it.</p>
           <h3>Details</h3>
           <ul>
             <li>Click the title to rename;</li>
-            <li>the color dot gives this requirement <strong>its own color</strong> (defaults to the line's);</li>
-            <li>⋯ menu: change line, edit the copy format, reset the schedule, delete;</li>
+            <li>the color dot gives this project <strong>its own color</strong> (defaults to the track's);</li>
+            <li>⋯ menu: change track, edit the copy format, reset the schedule, delete;</li>
             <li>tags: <strong>+</strong> to add, <strong>×</strong> to remove, drag to reorder.</li>
           </ul>
           <h3>Copy as text</h3>
-          <p>The copy button turns the requirement into ready-to-paste text for a weekly report or chat. The format is yours: in "edit copy format", click the <code>{{需求名}}</code> <code>{{业务线}}</code> <code>{{标签}}</code> <code>{{排期}}</code> placeholder chips to build the template, with a live preview beside it.</p>
+          <p>The copy button turns the project into ready-to-paste text for a weekly report or chat. The format is yours: in "edit copy format", click the <code>{{需求名}}</code> <code>{{业务线}}</code> <code>{{标签}}</code> <code>{{排期}}</code> placeholder chips to build the template, with a live preview beside it.</p>
           <h3>Rich-text notes</h3>
           <ul>
             <li>Headings, bold, lists, quotes, code;</li>
@@ -337,25 +337,25 @@
             <li>everything autosaves.</li>
           </ul>
           <h3>Schedule overview</h3>
-          <p>The bottom of the details pane lists each stage's dates and working-day count; hover a stage's dot and it becomes an × — click to remove that stage's schedule.</p>
+          <p>The bottom of the details pane lists each phase's dates and working-day count; hover a phase's dot and it becomes an × — click to remove that phase's schedule.</p>
 
-          <h2 id="en-organize">Lines / stages / tags</h2>
+          <h2 id="en-organize">Lines / phases / tags</h2>
           <ul>
-            <li><strong>Business lines</strong> group requirements — one color per line;</li>
-            <li><strong>Stages</strong> are the steps work moves through (Dev / Integration / QA / Release by default) — add, remove and reorder freely; just don't schedule the ones you don't care about;</li>
+            <li><strong>Tracks</strong> group projects — one color per track;</li>
+            <li><strong>Phases</strong> are the steps work moves through (Dev / Integration / QA / Release by default) — add, remove and reorder freely; just don't schedule the ones you don't care about;</li>
             <li><strong>Tags</strong> cut across lines — people and priorities both work well.</li>
           </ul>
           <p>All three are managed from the list's ⋯ menu.</p>
           <h3>How tags display</h3>
           <p>On the calendar and in the list, tags show as small round badges; details show the full name. Each tag can use <strong>any character of its name</strong> as the badge (first by default) — or <strong>an uploaded avatar image</strong>. So "Jane Smith" can badge as "J", "S", or her photo.</p>
-          <div class="note">This is a <strong>scheduling record tool</strong>, not task management — a schedule has no "done / not done", only past / in progress / future. Once the last scheduled stage ends before today, the requirement moves to "Ended".</div>
+          <div class="note">This is a <strong>scheduling record tool</strong>, not task management — a schedule has no "done / not done", only past / in progress / future. Once the last scheduled phase ends before today, the project moves to "Ended".</div>
 
           <h2 id="en-calendar">Calendar view</h2>
           <ul>
             <li>The calendar <strong>scrolls endlessly</strong>; "Today" snaps back to this week, ◂ ▸ step by month;</li>
             <li>holiday badges and names, optional <strong>lunar calendar</strong> and minor festivals; switch the holiday region under Settings → Calendar (CN / HK / TW / US / JP / GB / DE / FR / SG / KR / AU / CA / IN);</li>
             <li>hovering highlights the outline of that month — or turn on <strong>always-visible</strong> month divider lines in Settings;</li>
-            <li>ended bars fade automatically; the selected requirement's bars get a highlight ring so they're easy to spot.</li>
+            <li>ended bars fade automatically; the selected project's bars get a highlight ring so they're easy to spot.</li>
           </ul>
 
           <h2 id="en-sync">Multi-device sync</h2>
@@ -415,8 +415,8 @@
           <h2 id="en-keys">Shortcuts</h2>
           <table>
             <tr><th>Shortcut</th><th>Action</th></tr>
-            <tr><td><code>⌘N</code></td><td>New requirement</td></tr>
-            <tr><td><code>⌘F</code></td><td>Search requirements</td></tr>
+            <tr><td><code>⌘N</code></td><td>New project</td></tr>
+            <tr><td><code>⌘F</code></td><td>Search projects</td></tr>
             <tr><td><code>⌘Z</code> / <code>⌘⇧Z</code></td><td>Undo / redo</td></tr>
             <tr><td><code>⌘K</code></td><td>Link selected text in a note</td></tr>
             <tr><td><code>Esc</code></td><td>Close dialog</td></tr>
