@@ -6,7 +6,7 @@
 
 在日历上划选即排期 · AI 总结进度 · 多端同步 · 本地优先
 
-[🌐 官网](https://yoke.xheldon.com) · [⬇️ 下载](https://yoke.xheldon.com/#download) · [📖 文档](https://yoke.xheldon.com/docs.html) · macOS / Windows / Linux · 免费
+[🌐 官网](https://yokecal.com) · [⬇️ 下载](https://yokecal.com/#download) · [📖 文档](https://yokecal.com/docs) · macOS / Windows / Linux · 免费
 
 [English](README.md) · **简体中文**
 
@@ -43,7 +43,7 @@ Yoke Calendar 是一款桌面排期工具:在日历上拖拽划选一段时间,�
 
 ## 文档
 
-完整使用说明(排期、同步、AI 总结、日历订阅、数据备份、常见问题):**[yoke.xheldon.com/docs.html](https://yoke.xheldon.com/docs.html)**
+完整使用说明(排期、同步、AI 总结、日历订阅、数据备份、常见问题):**[yokecal.com/docs](https://yokecal.com/docs)**
 
 ---
 

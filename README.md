@@ -6,7 +6,7 @@
 
 Drag-select on the calendar to schedule · AI progress summaries · Multi-device sync · Local-first
 
-[🌐 Website](https://yoke.xheldon.com) · [⬇️ Download](https://yoke.xheldon.com/#download) · [📖 Docs](https://yoke.xheldon.com/docs.html) · macOS / Windows / Linux · Free
+[🌐 Website](https://yokecal.com) · [⬇️ Download](https://yokecal.com/#download) · [📖 Docs](https://yokecal.com/docs) · macOS / Windows / Linux · Free
 
 **English** · [简体中文](README.zh-CN.md)
 
@@ -43,7 +43,7 @@ Once installed, it checks for updates automatically — no manual reinstalls.
 
 ## Documentation
 
-Full usage docs (scheduling, sync, AI summaries, calendar subscriptions, backups, FAQ): **[yoke.xheldon.com/docs.html](https://yoke.xheldon.com/docs.html)**
+Full usage docs (scheduling, sync, AI summaries, calendar subscriptions, backups, FAQ): **[yokecal.com/docs](https://yokecal.com/docs)**
 
 ---
 
