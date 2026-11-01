@@ -1,0 +1,181 @@
+diff --git a/docs.html b/docs.html
+index ef5d4bc..bfdd0e1 100644
+--- a/docs.html
++++ b/docs.html
+@@ -25,6 +25,20 @@
+       content="Yoke Calendar 使用文档：排期、同步、AI 总结、日历订阅、数据与更新。"
+     />
+     <link rel="icon" type="image/png" href="assets/icon.png" />
++    <link rel="canonical" href="https://yokecal.com/docs" />
++    <meta property="og:type" content="website" />
++    <meta property="og:site_name" content="Yoke Calendar" />
++    <meta property="og:url" content="https://yokecal.com/docs" />
++    <meta property="og:title" data-i18n-attr="content:meta.docsTitle" content="文档 · Yoke Calendar" />
++    <meta property="og:description" data-i18n-attr="content:meta.docsDesc" content="Yoke Calendar 使用文档：排期、同步、AI 总结、日历订阅、数据与更新。" />
++    <meta property="og:image" content="https://yokecal.com/assets/icon.png" />
++    <meta property="og:image:alt" content="Yoke Calendar" />
++    <meta property="og:image:width" content="1024" />
++    <meta property="og:image:height" content="1024" />
++    <meta name="twitter:card" content="summary" />
++    <meta name="twitter:title" data-i18n-attr="content:meta.docsTitle" content="文档 · Yoke Calendar" />
++    <meta name="twitter:description" data-i18n-attr="content:meta.docsDesc" content="Yoke Calendar 使用文档：排期、同步、AI 总结、日历订阅、数据与更新。" />
++    <meta name="twitter:image" content="https://yokecal.com/assets/icon.png" />
+     <link rel="stylesheet" href="assets/style.css" />
+     <style>
+       .doc { display: grid; grid-template-columns: 240px 1fr; gap: 56px; padding: 40px max(20px, calc((100vw - var(--max)) / 2)); }
+diff --git a/index.html b/index.html
+index 805077c..d4ebf27 100644
+--- a/index.html
++++ b/index.html
+@@ -27,9 +27,20 @@
+       content="个人和团队的桌面排期日历——划选即排期，AI 总结进度，多端同步，本地优先。支持 macOS / Windows / Linux。"
+     />
+     <link rel="icon" type="image/png" href="assets/icon.png" />
++    <link rel="canonical" href="https://yokecal.com/" />
++    <meta property="og:type" content="website" />
++    <meta property="og:site_name" content="Yoke Calendar" />
++    <meta property="og:url" content="https://yokecal.com/" />
+     <meta property="og:title" data-i18n-attr="content:meta.ogTitle" content="Yoke Calendar · 桌面排期日历" />
+     <meta property="og:description" data-i18n-attr="content:meta.ogDesc" content="划选即排期 · AI 进度总结 · 多端同步 · 本地优先。" />
+-    <meta property="og:image" content="assets/icon.png" />
++    <meta property="og:image" content="https://yokecal.com/assets/icon.png" />
++    <meta property="og:image:alt" content="Yoke Calendar" />
++    <meta property="og:image:width" content="1024" />
++    <meta property="og:image:height" content="1024" />
++    <meta name="twitter:card" content="summary" />
++    <meta name="twitter:title" data-i18n-attr="content:meta.ogTitle" content="Yoke Calendar · 桌面排期日历" />
++    <meta name="twitter:description" data-i18n-attr="content:meta.ogDesc" content="划选即排期 · AI 进度总结 · 多端同步 · 本地优先。" />
++    <meta name="twitter:image" content="https://yokecal.com/assets/icon.png" />
+     <link rel="stylesheet" href="assets/style.css" />
+   </head>
+   <body>
+diff --git a/privacy.html b/privacy.html
+index 1fc6ed5..e15e0a9 100644
+--- a/privacy.html
++++ b/privacy.html
+@@ -21,15 +21,22 @@
+       }
+     </script>
+     <title>Privacy Policy · Yoke Calendar</title>
+-    <meta
+-      name="description"
+-      data-i18n-attr="content:meta.indexDesc"
+-      content="个人和团队的桌面排期日历——划选即排期，AI 总结进度，多端同步，本地优先。支持 macOS / Windows / Linux。"
+-    />
++    <meta name="description" content="Privacy policy for Yoke Calendar and Yoke Teams." />
+     <link rel="icon" type="image/png" href="assets/icon.png" />
+-    <meta property="og:title" data-i18n-attr="content:meta.ogTitle" content="Yoke Calendar · 桌面排期日历" />
+-    <meta property="og:description" data-i18n-attr="content:meta.ogDesc" content="划选即排期 · AI 进度总结 · 多端同步 · 本地优先。" />
+-    <meta property="og:image" content="assets/icon.png" />
++    <link rel="canonical" href="https://yokecal.com/privacy" />
++    <meta property="og:type" content="website" />
++    <meta property="og:site_name" content="Yoke Calendar" />
++    <meta property="og:url" content="https://yokecal.com/privacy" />
++    <meta property="og:title" content="Privacy Policy · Yoke Calendar" />
++    <meta property="og:description" content="Privacy policy for Yoke Calendar and Yoke Teams." />
++    <meta property="og:image" content="https://yokecal.com/assets/icon.png" />
++    <meta property="og:image:alt" content="Yoke Calendar" />
++    <meta property="og:image:width" content="1024" />
++    <meta property="og:image:height" content="1024" />
++    <meta name="twitter:card" content="summary" />
++    <meta name="twitter:title" content="Privacy Policy · Yoke Calendar" />
++    <meta name="twitter:description" content="Privacy policy for Yoke Calendar and Yoke Teams." />
++    <meta name="twitter:image" content="https://yokecal.com/assets/icon.png" />
+     <link rel="stylesheet" href="assets/style.css" />
+   </head>
+   <body>
+diff --git a/refund.html b/refund.html
+index 8f2fb25..0c315f1 100644
+--- a/refund.html
++++ b/refund.html
+@@ -21,15 +21,22 @@
+       }
+     </script>
+     <title>Refund Policy · Yoke Calendar</title>
+-    <meta
+-      name="description"
+-      data-i18n-attr="content:meta.indexDesc"
+-      content="个人和团队的桌面排期日历——划选即排期，AI 总结进度，多端同步，本地优先。支持 macOS / Windows / Linux。"
+-    />
++    <meta name="description" content="Refund policy for Yoke Calendar team seats." />
+     <link rel="icon" type="image/png" href="assets/icon.png" />
+-    <meta property="og:title" data-i18n-attr="content:meta.ogTitle" content="Yoke Calendar · 桌面排期日历" />
+-    <meta property="og:description" data-i18n-attr="content:meta.ogDesc" content="划选即排期 · AI 进度总结 · 多端同步 · 本地优先。" />
+-    <meta property="og:image" content="assets/icon.png" />
++    <link rel="canonical" href="https://yokecal.com/refund" />
++    <meta property="og:type" content="website" />
++    <meta property="og:site_name" content="Yoke Calendar" />
++    <meta property="og:url" content="https://yokecal.com/refund" />
++    <meta property="og:title" content="Refund Policy · Yoke Calendar" />
++    <meta property="og:description" content="Refund policy for Yoke Calendar team seats." />
++    <meta property="og:image" content="https://yokecal.com/assets/icon.png" />
++    <meta property="og:image:alt" content="Yoke Calendar" />
++    <meta property="og:image:width" content="1024" />
++    <meta property="og:image:height" content="1024" />
++    <meta name="twitter:card" content="summary" />
++    <meta name="twitter:title" content="Refund Policy · Yoke Calendar" />
++    <meta name="twitter:description" content="Refund policy for Yoke Calendar team seats." />
++    <meta name="twitter:image" content="https://yokecal.com/assets/icon.png" />
+     <link rel="stylesheet" href="assets/style.css" />
+   </head>
+   <body>
+diff --git a/robots.txt b/robots.txt
+new file mode 100644
+index 0000000..de8b830
+--- /dev/null
++++ b/robots.txt
+@@ -0,0 +1,4 @@
++User-agent: *
++Allow: /
++
++Sitemap: https://yokecal.com/sitemap.xml
+diff --git a/sitemap.xml b/sitemap.xml
+new file mode 100644
+index 0000000..2100f17
+--- /dev/null
++++ b/sitemap.xml
+@@ -0,0 +1,9 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
++  <url><loc>https://yokecal.com/</loc></url>
++  <url><loc>https://yokecal.com/docs</loc></url>
++  <url><loc>https://yokecal.com/privacy</loc></url>
++  <url><loc>https://yokecal.com/terms</loc></url>
++  <url><loc>https://yokecal.com/refund</loc></url>
++  <url><loc>https://yokecal.com/app/</loc></url>
++</urlset>
+diff --git a/terms.html b/terms.html
+index 599b749..ef44f3c 100644
+--- a/terms.html
++++ b/terms.html
+@@ -21,15 +21,22 @@
+       }
+     </script>
+     <title>Terms of Service · Yoke Calendar</title>
+-    <meta
+-      name="description"
+-      data-i18n-attr="content:meta.indexDesc"
+-      content="个人和团队的桌面排期日历——划选即排期，AI 总结进度，多端同步，本地优先。支持 macOS / Windows / Linux。"
+-    />
++    <meta name="description" content="Terms of service for Yoke Calendar and Yoke Teams." />
+     <link rel="icon" type="image/png" href="assets/icon.png" />
+-    <meta property="og:title" data-i18n-attr="content:meta.ogTitle" content="Yoke Calendar · 桌面排期日历" />
+-    <meta property="og:description" data-i18n-attr="content:meta.ogDesc" content="划选即排期 · AI 进度总结 · 多端同步 · 本地优先。" />
+-    <meta property="og:image" content="assets/icon.png" />
++    <link rel="canonical" href="https://yokecal.com/terms" />
++    <meta property="og:type" content="website" />
++    <meta property="og:site_name" content="Yoke Calendar" />
++    <meta property="og:url" content="https://yokecal.com/terms" />
++    <meta property="og:title" content="Terms of Service · Yoke Calendar" />
++    <meta property="og:description" content="Terms of service for Yoke Calendar and Yoke Teams." />
++    <meta property="og:image" content="https://yokecal.com/assets/icon.png" />
++    <meta property="og:image:alt" content="Yoke Calendar" />
++    <meta property="og:image:width" content="1024" />
++    <meta property="og:image:height" content="1024" />
++    <meta name="twitter:card" content="summary" />
++    <meta name="twitter:title" content="Terms of Service · Yoke Calendar" />
++    <meta name="twitter:description" content="Terms of service for Yoke Calendar and Yoke Teams." />
++    <meta name="twitter:image" content="https://yokecal.com/assets/icon.png" />
+     <link rel="stylesheet" href="assets/style.css" />
+   </head>
+   <body>
